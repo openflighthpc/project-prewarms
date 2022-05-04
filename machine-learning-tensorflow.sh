@@ -67,6 +67,11 @@ import tensorflow as tf
 # Helper libraries
 import numpy as np
 
+# Import fashion dataset (for test data)
+fashion_mnist = tf.keras.datasets.fashion_mnist
+
+(train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
+
 # Set class names
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
@@ -91,6 +96,11 @@ import tensorflow as tf
 # Helper libraries
 import numpy as np
 import matplotlib.pyplot as plt
+
+# Import fashion dataset (for test data)
+fashion_mnist = tf.keras.datasets.fashion_mnist
+
+(train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
 
 # Set class names
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
