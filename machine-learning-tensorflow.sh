@@ -4,7 +4,7 @@ flight set always on
 flight env create conda@ml
 flight env activate conda@ml 
 
-conda create -n tensorflow python=3.6
+conda create -y -n tensorflow python=3.6
 source activate tensorflow
 # Installs tensorflow-2.6.2 as of testing 2022/05/04
 pip install tensorflow matplotlib pyyaml
