@@ -53,7 +53,7 @@ model.compile(optimizer='adam',
 model.fit(train_images, train_labels, epochs=10)
 
 # Save model
-modle.save('fashion_model')
+model.save('fashion_model')
 EOF
 
 cat << EOF > fashion-test.py
