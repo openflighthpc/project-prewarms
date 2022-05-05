@@ -7,6 +7,7 @@ flight env activate gridware@cfd
 gridware install --yes apps/openfoam/4.1
 
 mkdir cfd-cavity-demo
+cp -r $FOAM_TUTORIALS/incompressible/icoFoam/cavity/cavity/* $HOME/cfd-cavity-demo
 cd cfd-cavity-demo
 
 cat << 'EOF' > cavity.sh
@@ -16,10 +17,6 @@ cat << 'EOF' > cavity.sh
 # Activate environment and load OpenFOAM module
 flight env activate gridware
 module load apps/openfoam
-
-# Create job directory from example job
-cp -r $FOAM_TUTORIALS/incompressible/icoFoam/cavity/cavity $HOME/.
-cd $HOME/cavity
 
 # Calculate fluid pressure with OpenFOAM tools
 blockMesh
