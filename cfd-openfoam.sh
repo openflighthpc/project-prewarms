@@ -4,7 +4,7 @@ flight set always on
 flight env create gridware@cfd
 flight env activate gridware@cfd
 
-gridware install apps/openfoam/4.1
+gridware install -y apps/openfoam/4.1
 
 mkdir cfd-cavity-demo
 cd cfd-cavity-demo
