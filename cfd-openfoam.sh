@@ -5,6 +5,7 @@ flight env create gridware@cfd
 flight env activate gridware@cfd
 
 gridware install --yes apps/openfoam/4.1
+module load apps/openfoam
 
 mkdir cfd-cavity-demo
 cp -r $FOAM_TUTORIALS/incompressible/icoFoam/cavity/cavity/* $HOME/cfd-cavity-demo
