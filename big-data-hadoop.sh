@@ -1,6 +1,12 @@
 flight start
 flight set always on
 
+# Manual fixes
+sudo sed -i 's/0.14.1/0.17.2/g;/bin\/spack bootstrap/d' /opt/flight/usr/lib/env/types/spack/global-install.sh 
+sudo sed -i 's/0.14.1/0.17.2/g;/bin\/spack bootstrap/d' /opt/flight/usr/lib/env/types/spack/user-install.sh 
+sudo sed -i '/export -f module/d' /opt/flight/usr/lib/env/types/spack/activate.bash.erb
+sudo sed -i '/eval.*moduels/d' /opt/flight/usr/lib/env/types/spack/activate.tcsh.erb
+
 flight env create spack@bigdata
 flight env activate spack@bigdata
 
