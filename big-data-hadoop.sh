@@ -40,14 +40,14 @@ wget -O /tmp/hdfiles.zip 'https://drive.google.com/uc?export=download&id=0B_vqvT
 unzip -j /tmp/hdfiles.zip
 
 HADOOP_HOME=$(find ~/.local -iname "hadoop-env.sh" |sed 's,/etc/hadoop.*,,g')
-cat << EOF > ~/hadoopenv
+cat << EOF > ~/bigdata-sales-demo/hadoopenv
 export CLASSPATH="$(find ~/.local -iname "hadoop-mapreduce-client-core-3.3.0.jar"):$(find ~/.local -iname "hadoop-mapreduce-client-common-3.3.0.jar"):$(find ~/.local -iname "hadoop-common-3.3.0.jar"):~/bigdata-sales-demo/SalesCountry/*:$HADOOP_HOME/lib/*"
 EOF
 
 cat << EOF > prepare-data.sh
 flight env activate spack
 spack load hadoop
-source ~/hadoopenv
+source ~/bigdata-sales-demo/hadoopenv
 
 javac -d . SalesMapper.java SalesCountryReducer.java SalesCountryDriver.java
 echo "Main-Class: SalesCountry.SalesCountryDriver" > Manifest.txt
@@ -60,7 +60,7 @@ EOF
 cat << EOF > run-mapreduce.sh
 flight env activate spack
 spack load hadoop
-source ~/hadoopenv
+source ~/bigdata-sales-demo/hadoopenv
 
 hadoop jar ProductSalePerCountry.jar /inputMapReduce /mapreduce_output_sales
 EOF
@@ -68,7 +68,7 @@ EOF
 cat << EOF > view-data.sh
 flight env activate spack
 spack load hadoop
-source ~/hadoopenv
+source ~/bigdata-sales-demo/hadoopenv
 
 hdfs dfs -cat /mapreduce_output_sales/part-00000 | more
 EOF
