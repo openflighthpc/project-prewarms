@@ -28,6 +28,7 @@ cat << EOF > $(find ~/.local -iname "core-site.xml")
 EOF
 
 # Start hadoop services
+hdfs namenode -format -force
 $(find ~/.local -name 'start-dfs.sh')
 $(find ~/.local -name 'start-yarn.sh')
 
