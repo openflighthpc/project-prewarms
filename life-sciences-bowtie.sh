@@ -1,8 +1,8 @@
 flight start
 flight set always on
 
-flight env create spack
-flight env activate spack
+flight env create spack@lifesci
+flight env activate spack@lifesci
 spack install bowtie
 
 mkdir life-sciences-ecoli-demo
@@ -12,7 +12,7 @@ wget -O ecoli.fa https://raw.githubusercontent.com/BenLangmead/bowtie/master/rea
 cat << EOF > ecoli.sh
 #!/bin/bash -l
 #SBATCH -N 1
-flight env activate spack
+flight env activate spack@lifesci
 spack load bowtie
 bowtie-build ecoli.fa e_coli
 EOF
